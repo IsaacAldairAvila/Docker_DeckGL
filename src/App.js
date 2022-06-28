@@ -12,7 +12,9 @@ function App() {
   });
   // PULSING DOT ICON
   const [pulsing, setPulsing] = useState(false)
+  const [carretera, setCarretera] = useState(false)
   const cambiarpulsing = () => { setPulsing(!pulsing) }
+  const cambiarcarretera = () => { setCarretera(!carretera) }
   const [data, setData] = useState([
     {
       name: 'b', opacity: 0.8, radius: 50, radiusstatic: 50, coordinates: [
@@ -51,8 +53,11 @@ function App() {
       ], color: [197, 0, 255], angle: 90
     },
   ])
+
+
+
   const [ani, setAni] = useState(true)
-  const cambio = () => { setData(data.map(x => ({...x, radius: cambiotam(x.radius, x.name, x.radiusstatic)})))}
+  const cambio = () => { setData(data.map(x => ({ ...x, radius: cambiotam(x.radius, x.name, x.radiusstatic) }))) }
   const cambiotam = (x, type, max) => {
     if (type === 'a') {
       return max
@@ -81,10 +86,11 @@ function App() {
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>
       <div style={{ width: '300px' }}>
-        <Card name='Pulsing Dot Icon' onClick={cambiarpulsing} visible={pulsing}/>
+        <Card name='Icono con pulso' onClick={cambiarpulsing} visible={pulsing} />
+        <Card name='Vias del tren' onClick={cambiarcarretera} visible={carretera} />
       </div>
       <div style={{ display: 'flex', width: 'calc(100% - 300px)', position: 'relative', height: '100vh' }}>
-        <Maps viewState={InitialView} data={data} pulsing={pulsing} />
+        <Maps viewState={InitialView} data={data} pulsing={pulsing} carretera={carretera}/>
       </div>
     </div>
 
