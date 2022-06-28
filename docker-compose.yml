@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  app:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # container_name: a
+    image: reactmap
+    env_file: .env
+    ports:
+      - ${PORT_IN_HOST_MAP}:80
