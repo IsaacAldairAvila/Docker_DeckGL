@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+# DECK.GL WITH REACT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# DESARROLLO SIN DOCKER
 
-## Available Scripts
+## Requerimientos:
 
-In the project directory, you can run:
+- NODE Versión `16.14` (Fue con la que se desarrollo)
 
-### `npm start`
+## Ejecución:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+npm install
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Instala todas las librerías Necesarias
 
-### `npm test`
+```
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Inicia la ejecución, por defecto en`localhost:3000`
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# PRODUCCIÓN SIN DOCKER
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Requerimientos:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- NODE Versión `16.14` (Fue con la que se desarrollo)
 
-### `npm run eject`
+## Ejecución:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Instala todas las librerías Necesarias
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+npm run build
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Crea la carpeta `build` donde esta todo el proyecto.
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# DOCKER DESARROLLO
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Tener instalado `Docker` y `Docker-compose`
+2. Build con `sudo docker-compose -f docker-compose-dev.yml build`
+3. Correr contenedor con `sudo docker-compose -f docker-compose-dev.yml up`
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# DOCKER PRODUCCIÓN
 
-### Analyzing the Bundle Size
+1. Tener instalado `Docker` y `Docker-compose`
+2. Build con `sudo docker-compose build`
+3. Correr contenedor con`sudo docker-compose up`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+# VARIABLES DE ENTORNO GLOBALES
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Las mismas se encuentran en el archivo `.env`
 
-### Advanced Configuration
+<aside>
+⚠️ Para que una **env** sea leída por react tiene que empezar por `REACT_APP_`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+</aside>
 
-### Deployment
+```
+REACT_APP_KEY_MAPBOX=pk.abc
+REACT_APP_STYLE_MAPBOX=mapbox://styles/mapbox/dark-v10
+PORT_IN_HOST_MAP=1234
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+La variable de `REACT_APP_STYLE_MAPBOX` que aparece en `.env.example` es valida y es libre. colocando un puerto solo se necesita una `KEY` de `MAPBOX`
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# LIBRERÍAS
+
+### Mapas
+
+- [@turf/turf](https://turfjs.org/)
+- [deck.gl](https://deck.gl/)
+- [mapbox-gl](https://docs.mapbox.com/mapbox-gl-js/api/)
+- [react-map-gl](https://visgl.github.io/react-map-gl/)
+
+<aside>
+⚠️ Versión de react-map-gl compatible con Deck.gl: @5
+
+</aside>
