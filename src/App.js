@@ -11,8 +11,8 @@ function App() {
     return () => clearInterval(interval);
   });
   // PULSING DOT ICON
-  const [pulsing, setPulsing] = useState(false)
-  const [carretera, setCarretera] = useState(false)
+  const [pulsing, setPulsing] = useState(true)
+  const [carretera, setCarretera] = useState(true)
   const cambiarpulsing = () => { setPulsing(!pulsing) }
   const cambiarcarretera = () => { setCarretera(!carretera) }
   const [data, setData] = useState([
@@ -53,7 +53,8 @@ function App() {
       ], color: [197, 0, 255], angle: 90
     },
   ])
-
+  const [viatren, setViatren] = useState(true)
+  const cambiarviatren = () => { setViatren(!viatren) }
 
 
   const [ani, setAni] = useState(true)
@@ -87,10 +88,11 @@ function App() {
     <div style={{ display: 'flex', flexDirection: 'row' }}>
       <div style={{ width: '300px' }}>
         <Card name='Icono con pulso' onClick={cambiarpulsing} visible={pulsing} />
-        <Card name='Vias del tren' onClick={cambiarcarretera} visible={carretera} />
+        <Card name='Autopista' onClick={cambiarcarretera} visible={carretera} />
+        <Card name='Vias del tren' onClick={cambiarviatren} visible={viatren} />
       </div>
       <div style={{ display: 'flex', width: 'calc(100% - 300px)', position: 'relative', height: '100vh' }}>
-        <Maps viewState={InitialView} data={data} pulsing={pulsing} carretera={carretera}/>
+        <Maps viewState={InitialView} data={data} pulsing={pulsing} carretera={carretera} viatren={viatren} />
       </div>
     </div>
 
